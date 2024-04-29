@@ -1,0 +1,27 @@
+[package]
+name = "api"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tauri-interop = { git = "https://github.com/photovoltex/tauri-interop", features = [
+  "event",
+  "initial_value",
+] }
+
+# common
+log = "0.4"
+serde = { version = "1", features = ["derive"] }
+
+[target.'cfg(not(target_family = "wasm"))'.dependencies]
+tauri = { version = "1.6" }
+
+[target.'cfg(target_family = "wasm")'.dependencies]
+js-sys = { version = "0.3" }
+serde-wasm-bindgen = { version = "0.6" }
+wasm-bindgen = { version = "0.2", features = ["serde-serialize"] }
+wasm-bindgen-futures = { version = "0.4" }
+leptos = { version = "0.6", features = ["csr"], optional = true }
+
+[features]
+leptos = ["dep:leptos", "tauri-interop/leptos"]

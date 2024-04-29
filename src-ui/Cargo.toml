@@ -6,6 +6,9 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+
+api = { path = "../api" }
 leptos = { version = "0.6.9", features = ["csr"] }
 console_log = "1.0.0"
 log = "0.4"
@@ -17,6 +20,32 @@ tauri-sys = { git = "https://github.com/JonasKruckenberg/tauri-sys", rev = "0c86
   "all",
 ] }
 futures = "0.3"
+leptos-use = "0.10.9"
+js-sys = "0.3.69"
+web-sys = "0.3.69"
+gloo = "0.11.0"
+reqwest = "0.12.4"
+itertools = "0.12.1"
+once_cell = "1.19.0"
+lazy_static = "1.4.0"
+stylers = "0.3.2"
+turf = "0.8.0"
+leptos-mview = "0.3.1"
+leptonic = "0.5.0"
+leptos_icons = "0.3.0"
+thaw = "0.3.1"
+async-recursion = "1.1.1"
+tailcall = "1.0.1"
+wasm-bindgen = "0.2.92"
+serde-wasm-bindgen = "0.6.5"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3"
+
+
+[package.metadata.leptonic]
+# REQUIRED: Leptonic's build-script will copy the Leptonic themes to this directory.
+style-dir = "style"
+
+# REQUIRED: Leptonic's build-script will copy static JS dependencies to this directory.
+js-dir = "lib/js"
